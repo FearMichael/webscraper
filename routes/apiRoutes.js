@@ -1,10 +1,9 @@
-const express = require("express");
-const app = express();
-
-apiRoutes.get()
+const routes = require("express").Router();
+const db = require("../models");
+const axios = require("axios");
 
 // A GET route for scraping the echoJS website
-apiRoutes.get("/scrape", function(req, res) {
+routes.get("/scrape", function(req, res) {
     // First, we grab the body of the html with axios
     axios.get("https://www.reddit.com/r/developer/").then(function(response) {
       // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -41,4 +40,4 @@ apiRoutes.get("/scrape", function(req, res) {
     });
   });
 
-module.exports = apiRoutes;
+module.exports = routes;

@@ -1,13 +1,14 @@
 // Dependencies
 const express = require("express");
 const PORT = process.env.PORT || 3000
+const logger = require("morgan");
 const mongoose = require("mongoose");
 const exphbs = require("express-handlebars");
-const axios = require("axios");
+const htmlRoutes = require("./routes/htmlRoutes");
+const apiRoutes = require("./routes/apiRoutes");
 
 // Create express app instance.
 const app = express();
-const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 // Set the port of our application
