@@ -16,4 +16,6 @@ const ScrapeSchema = new Schema({
     }
 });
 
-module.exports = ScrapeSchema;
+const Scrape = mongoose.model("Scrape", ScrapeSchema);
+
+module.exports = Scrape;

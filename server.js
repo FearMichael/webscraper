@@ -20,8 +20,6 @@ app.set("view engine", "handlebars");
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
-
-
 // Routes
 app.use("/", htmlRoutes);
 app.use("/api", apiRoutes);
