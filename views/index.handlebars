@@ -1,1 +1,26 @@
-<h1>{{name}}</h1>
+<div class="center-align">
+    <h1>You been scrapin'?</h1>
+    <div class="container row">
+        {{#if scrapes}}
+        {{#each scrapes}}
+        <div class="container row valign-wrapper">
+            <div class="col l6">
+            <a href={{this.link}}><h4>{{this.title}}</h4></a>
+            </div>
+        <div class="col l6">
+        <button class="btn btn-lg commentButton" data-id={{this._id}}>Comment!</button>
+        <div class="commentForm" data-id={{this._id}}>
+            <div class="input-field">
+                <input class="name" placeholder="Name">
+            </div>
+            <div class="input-field">
+                <textarea class="comment materialize-textarea"></textarea>
+            </div>
+            <button class="btn btn-sm blue formPush">Send</button>
+        </div>
+        </div>
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+</div>

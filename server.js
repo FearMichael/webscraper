@@ -9,7 +9,7 @@ const apiRoutes = require("./routes/apiRoutes");
 
 // Create express app instance.
 const app = express();
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/webscraper";
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
