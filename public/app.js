@@ -9,17 +9,18 @@ $(document).on("click", ".commentButton", function(event) {
 });
 
 $(document).on("click", ".formPush", function(event) {
-// console.log($(this).parent())
-console.log($(this).parents("div.input-field.name"));
+    // let selectedId = $(this).attr("data-id");
+    console.log($(this).siblings().children())
+    console.log($(this).siblings().children(".name").val());
 let commentForm = {
-    author: $(this).siblings(".name").text(),
-    blurb: $(this).siblings(".comment").text(),
+    author: $(this).siblings().children(".name").val(),
+    blurb: $(this).siblings().children(".comment").val(),
     scrape: $(this).parent(".commentForm").attr("data-id")
 };
 console.log(commentForm);
     $.post("/api/comment", commentForm).then((data) => {
-
-    })
+        console.log(data);
+    });
 });
 
 

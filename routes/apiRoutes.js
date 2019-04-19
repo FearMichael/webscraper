@@ -39,7 +39,7 @@ routes.get("/scrape", function(req, res) {
   });
 
 routes.post("/comment", function(req, res) {
-    console.log(req.body.comment);
+    console.log(req.body);
     // db.Comment.create(req.body).then(function(data) {
     //     res.send(data);
     // });
