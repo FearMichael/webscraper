@@ -29,7 +29,7 @@ let commentForm = {
     scrape: $(this).parent(".commentForm").attr("data-id")
 };
 console.log(commentForm);
-if (inputCleaner(commentForm.author) || inputCleaner(commentForm.blurb)){
+if (inputCleaner(commentForm.author) && inputCleaner(commentForm.blurb)){
     $.post("/api/comment", commentForm).then((data) => {
         console.log(data);
         $(this).siblings().children(".name").val("")
@@ -39,7 +39,9 @@ if (inputCleaner(commentForm.author) || inputCleaner(commentForm.blurb)){
         M.toast({html: "Nice, you commented!", displayLength: 5000, inDuration: 150, outDuration: 300, classes: 'rounded blue', })
     });
 } else {
-    M.toast({html: "No special characters allowed. Please try again.", displayLength: 5000, inDuration: 150, outDuration: 300, classes: 'rounded blue', })
+    M.toast({html: "No special characters allowed. Please try again.", displayLength: 5000, inDuration: 150, outDuration: 300, classes: 'rounded blue', });
+    $(this).siblings().children(".name").val("")
+    $(this).siblings().children(".comment").val("")
 }
 });
 
