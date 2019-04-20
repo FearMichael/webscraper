@@ -11,10 +11,10 @@ const CommentSchema = new Schema({
         type: String,
         required: true,
     },
-    scrape: {
+    scrape: [{
         type: Schema.Types.ObjectId,
         ref: "Scrape",
-    }
+    }]
 });
 
 const Comment = mongoose.model("Comment", CommentSchema);

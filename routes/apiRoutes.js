@@ -36,13 +36,20 @@ routes.get("/scrape", function(req, res) {
           });
       });
     });
+    res.send("Complete!")
   });
 
 routes.post("/comment", function(req, res) {
     console.log(req.body);
-    // db.Comment.create(req.body).then(function(data) {
-    //     res.send(data);
-    // });
+    db.Comment.create(req.body).then(function(data) {
+        db.Scrape.findOneAndUpdate({_id: req.body.scrape}, {$push: {comment: data._id}}).then(function(data) {
+          res.send(data);
+        }).catch(function(err) {
+          console.log(err)
+        })
+    }).catch(function(err) {
+      console.log(err);
+    });
 });
 
 module.exports = routes;

@@ -1,13 +1,24 @@
 <div class="center-align">
-    <h1>You been scrapin'?</h1>
+    <h1 class="blue lighten-3">You been scrapin'?</h1>
     <div class="container row">
         {{#if scrapes}}
         {{#each scrapes}}
-        <div class="container row valign-wrapper">
-            <div class="col l6">
-            <a href="https://www.reddit.com{{this.link}}"><h4>{{this.title}}</h4></a>
+        <div class="container row">
+            <div class="col l9">
+                <a href="https://www.reddit.com{{this.link}}" data-id={{this._id}} target="_blank"><h4>{{this.title}}</h4></a>
+                {{#if this.comment}}
+                <h4>Comments</h4>
+                <hr class="commentDivider" />
+                {{#each this.comment}}
+                <div class="commentSection">
+                    <h5>{{this.author}}</h5>
+                    <p>{{this.blurb}}</p>
+                </div>
+                {{/each}}
+                {{/if}}
             </div>
-        <div class="col l6">
+            <hr class="articleDivider" />
+        <div class="col l3">
         <button class="btn btn-lg commentButton" data-id={{this._id}}>Comment!</button>
         <div class="commentForm" data-id={{this._id}}>
             <div class="input-field">
@@ -22,5 +33,17 @@
         </div>
         {{/each}}
         {{/if}}
+
+{{!-- Notification Modal --}}
+<div id="notificationModal" class="modal">
+    <div class="modal-content">
+      <h4>Notification:</h4>
+      <p class="modalText"></p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i></i></a>
+    </div>
+  </div>
+
     </div>
 </div>

@@ -11,10 +11,10 @@ const ScrapeSchema = new Schema({
         type: String,
         required: true
     },
-    comment: {
+    comment: [{
         type: Schema.Types.ObjectId,
-        ref: "Comment"
-    }
+        ref: "Comment",
+    }]
 });
 
 const Scrape = mongoose.model("Scrape", ScrapeSchema);

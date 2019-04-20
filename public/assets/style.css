@@ -1,3 +1,7 @@
 .commentForm {
     display: none;
 }
+
+.commentButton {
+    margin-top: 1rem;
+}
