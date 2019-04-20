@@ -36,7 +36,8 @@ if (inputCleaner(commentForm.author) && inputCleaner(commentForm.blurb)){
         $(this).siblings().children(".comment").val("")
         $(this).parent(".commentForm").hide();
         // modalText.text("Nice, you posted a comment!");
-        M.toast({html: "Nice, you commented!", displayLength: 5000, inDuration: 150, outDuration: 300, classes: 'rounded blue', })
+        M.toast({html: "Nice, you commented!", displayLength: 5000, inDuration: 150, outDuration: 300, classes: 'rounded blue', completeCallback: () => location.reload()
+    })
     });
 } else {
     M.toast({html: "No special characters allowed. Please try again.", displayLength: 5000, inDuration: 150, outDuration: 300, classes: 'rounded blue', });

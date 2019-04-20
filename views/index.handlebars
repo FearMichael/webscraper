@@ -1,14 +1,15 @@
+<h1 class="center-align headerTitle">Developers Scraping By...</h1>
 <div class="center-align">
-    <h1 class="blue lighten-3">You been scrapin'?</h1>
     <div class="container row">
         {{#if scrapes}}
         {{#each scrapes}}
-        <div class="container row">
+        <section class="scrapeArea">
+        <div class="row">
             <div class="col l9">
                 <a href="https://www.reddit.com{{this.link}}" data-id={{this._id}} target="_blank"><h4>{{this.title}}</h4></a>
                 {{#if this.comment}}
                 <h4>Comments</h4>
-                <hr class="commentDivider" />
+                <hr class="commentDivider">
                 {{#each this.comment}}
                 <div class="commentSection">
                     <h5>{{this.author}}</h5>
@@ -17,7 +18,7 @@
                 {{/each}}
                 {{/if}}
             </div>
-            <hr class="articleDivider" />
+            <hr class="articleDivider">
         <div class="col l3">
         <button class="btn btn-lg commentButton" data-id={{this._id}}>Comment!</button>
         <div class="commentForm" data-id={{this._id}}>
@@ -31,8 +32,10 @@
         </div>
         </div>
         </div>
+        </section>
         {{/each}}
         {{/if}}
+    </div>
 
 {{!-- Notification Modal --}}
 <div id="notificationModal" class="modal">
@@ -44,6 +47,4 @@
       <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i></i></a>
     </div>
   </div>
-
-    </div>
 </div>

@@ -11,14 +11,14 @@ routes.get("/", function(req, res) {
     })
 });
 
-routes.get("/testingApi", function(req, res) {
-    // Get all scrapes and send to handlebars
-    db.Scrape.find({}).populate('comment').exec(function(err, scrapes) {
-        if (err) { console.log(err) }
-        console.log("scraping")
-        console.log(scrapes);
-        res.json({scrapes});
-    })
+// routes.get("/testingApi", function(req, res) {
+//     // Get all scrapes and send to handlebars
+//     db.Scrape.find({}).populate('comment').exec(function(err, scrapes) {
+//         if (err) { console.log(err) }
+//         console.log("scraping")
+//         console.log(scrapes);
+//         res.json({scrapes});
+//     })
 
     // db.Comment.find({}).populate({path: 'comment.scrape', model: "Scrape"}).exec(function(err, comments) {
     //     if (err) { console.log(err) }
@@ -27,6 +27,6 @@ routes.get("/testingApi", function(req, res) {
     //     res.json({comments});
     // })
 
-});
+// });
 
 module.exports = routes;
