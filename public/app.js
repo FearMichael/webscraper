@@ -1,15 +1,6 @@
 $(document).ready(function() {
     M.AutoInit();
-    // $(".modal-trigger").modal();
-    $(".modal-trigger").modal({
-        onCloseEnd: () => {
-            console.log("Modal Closed");
-            console.log(event);
-            // location.reload(true);
-        }
-    });
 
-// const button = $("button");
 const modalText = $(".modalText");
 
 const regex = /^[a-zA-Z\d\-_.,\s]+$/
@@ -66,17 +57,9 @@ $(document).on("click", ".scraping", function(event) {
                 location.reload(true)
             }, 1500);
             console.log("Scrapingggg");
-            // console.log(window.location.reload(true));
-            // window.location.reload(true);
-            // $.get("/");
-            // console.log("Scrape callback");
+            
         });
     })
-});
-
-$(document).on("click", "#modalCancel", function(event) {
-    console.log("Cancelled!")
-    // location.reload(true);
 });
 
 });
