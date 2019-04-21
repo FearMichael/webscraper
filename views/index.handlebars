@@ -1,4 +1,11 @@
-<h1 class="center-align headerTitle">Developers Scraping By...</h1>
+<div class="row headerTitle valign-wrapper">
+    <div class="col l9">
+        <h1 class="center-align headerTitle">Developers Scraping By...</h1>
+    </div>
+    <div class="col l3">
+        <button class="btn btn-lg green scraping modal-trigger" href="#notificationModal">Scrape More Articles</button>
+    </div>
+</div>
 <div class="center-align">
     <div class="container row">
         {{#if scrapes}}
@@ -44,7 +51,8 @@
       <p class="modalText"></p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i></i></a>
+      <button class="btn btn-sm blue modal-close" id="modalContinue"><i class="material-icons">thumb_up</i>Yes, continue.</button>
+      <button class="btn btn-sm red modal-close" id="modalCancel"><i class="material-icons">cancel</i>Cancel</button>
     </div>
   </div>
 </div>
