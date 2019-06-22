@@ -2,6 +2,7 @@ const routes = require("express").Router();
 const db = require("../models");
 const axios = require("axios");
 const cheerio = require("cheerio");
+require("dotenv").config()
 
 // A GET route for scraping the echoJS website
 routes.get("/scrape", function(req, res) {
@@ -50,6 +51,15 @@ routes.post("/comment", function(req, res) {
     }).catch(function(err) {
       console.log(err);
     });
+});
+
+routes.post("/api/bcsassignments", function(req, res) {
+  axios.post("http://bootcampspot.com/api/instructor/v1/assignments",
+    {"enrollmentId": process.env.bcsCourseId},
+    {"headers": {"authToken": process.env.bcsAccess}})
+    .then(assignments => {
+    res.json(assignments);
+  });
 });
 
 module.exports = routes;
