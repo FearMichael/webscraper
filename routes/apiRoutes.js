@@ -54,7 +54,8 @@ routes.post("/comment", function(req, res) {
 });
 
 routes.post("/api/bcsassignments", function(req, res) {
-  axios.post("http://bootcampspot.com/api/instructor/v1/assignments",
+  res.send("endpoint reached")
+  axios.post("https://bootcampspot.com/api/instructor/v1/assignments",
     {"enrollmentId": process.env.bcsCourseId},
     {"headers": {"authToken": process.env.bcsAccess}})
     .then(assignments => {
