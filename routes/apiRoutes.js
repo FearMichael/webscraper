@@ -53,13 +53,39 @@ routes.post("/comment", function(req, res) {
     });
 });
 
-routes.post("/api/bcsassignments", function(req, res) {
-  res.send("endpoint reached")
-  axios.post("https://bootcampspot.com/api/instructor/v1/assignments",
-    {"enrollmentId": process.env.bcsCourseId},
-    {"headers": {"authToken": process.env.bcsAccess}})
-    .then(assignments => {
-    res.json(assignments);
+routes.post("/testPoint", function(req, res) {
+  console.log("---Headers---")
+  console.log(req.headers);
+  console.log("---Body---")
+  console.log(req.body);
+  res.send("nailed it")
+})
+
+routes.post("/bcsassignments", function(req, res) {
+  let data = {
+    'enrollmentId': parseInt(process.env.bcsCourseId)
+    };
+  let headers = {
+    'Content-Type': 'application/json', 
+    'authToken': process.env.bcsAccess
+  };
+  // console.log(req.body);
+  // res.send("endpoint reached")
+  // https://bootcampspot.com/api/instructor/v1/assignments
+  axios.post("https://bootcampspot.com/api/instructor/v1/assignments", data, {headers: headers})
+    .then(function(assignments) {
+      console.log("completed!");
+        console.log(assignments.data);
+        res.send("nailed it");
+    }).catch(function(err) {
+      if (err) {
+        console.log(err)
+        console.log("---Request--")
+        console.log(err.request)
+        console.log("---Response---")
+        console.log(err.response)
+        console.log("problem")
+      }   
   });
 });
 
