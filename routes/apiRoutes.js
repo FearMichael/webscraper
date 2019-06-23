@@ -76,7 +76,7 @@ routes.post("/bcsassignments", function(req, res) {
     .then(function(assignments) {
       console.log("completed!");
         console.log(assignments.data);
-        res.send("nailed it");
+        res.send(assignments.data);
     }).catch(function(err) {
       if (err) {
         console.log(err)
