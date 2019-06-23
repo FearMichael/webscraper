@@ -61,7 +61,7 @@ routes.post("/testPoint", function(req, res) {
   res.send("nailed it")
 })
 
-routes.post("/bcsassignments", function(req, res) {
+routes.get("/bcsassignments", function(req, res) {
   let data = {
     'enrollmentId': parseInt(process.env.bcsCourseId)
     };
