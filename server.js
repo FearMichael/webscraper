@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const exphbs = require("express-handlebars");
 const htmlRoutes = require("./routes/htmlRoutes");
 const apiRoutes = require("./routes/apiRoutes");
-const cors = require("cors");
+// const cors = require("cors");
 
 // Create express app instance.
 const app = express();
@@ -14,9 +14,14 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/webscraper";
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
+// app.use(cors());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
 app.use(logger("dev"));
 app.use(express.static("public/"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
